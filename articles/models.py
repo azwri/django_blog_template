@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from accounts.models import User
+from users.models import CustomUser
 
 
 class Tag(models.Model):
@@ -13,7 +13,7 @@ class Tag(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
     body = models.TextField(blank=True, null=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
     tags = models.ManyToManyField(Tag, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
