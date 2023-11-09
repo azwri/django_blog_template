@@ -3,7 +3,7 @@ from .models import Article, Tag
 
 
 def index(request):
-    articles = Article.objects.all()
+    articles = Article.objects.select_related('author', 'author__profile').prefetch_related('tags').all()
     context = {
         'articles': articles
     }

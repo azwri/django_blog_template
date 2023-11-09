@@ -5,4 +5,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),    
     path('blog/', include('articles.urls')),
     path('', include('users.urls')),
+
+    path("__debug__/", include("debug_toolbar.urls")),
 ]

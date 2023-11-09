@@ -2,4 +2,11 @@
 
 {% block content %}
   
+    <h2>{{ article.title }}</h2>
+
+    <p>{{ article.body }}</p>
+
+    {% for tag in article.tags.all  %}
+      {{ tag }},
+    {% endfor %}
 {% endblock content %}

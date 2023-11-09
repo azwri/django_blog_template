@@ -1,5 +1,20 @@
 {% extends "base/index.html" %}
 
 {% block content %}
+
+{% for article in articles %}
+  <div class="article">
+    <h2>
+        <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
+    </h2>
+    <p>By: {{ article.author.profile.bio }}</p>
+    <p>Tags: 
+        {% for tag in article.tags.all  %}
+          {{ tag.name }}, 
+        {% endfor %}
+    </p>
+
+    </div>
+{% endfor %}
   
 {% endblock content %}

@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'users.apps.UsersConfig',
     'articles.apps.ArticlesConfig',
+
+    # installed apps
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -52,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -143,3 +147,9 @@ LOGOUT_URL = 'users:logout'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
