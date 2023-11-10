@@ -1,5 +1,5 @@
 {% extends "base/index.html" %}
-
+{% load static %}
 {% block content %}
   
     <h2>{{ article.title }}</h2>
@@ -9,4 +9,12 @@
     {% for tag in article.tags.all  %}
       {{ tag }},
     {% endfor %}
+    <hr />
+
+   {% if article.image %}
+    <img src="{{ article.image.url }}" />
+    {% else %}
+    <img src="#" />
+
+   {% endif %}
 {% endblock content %}

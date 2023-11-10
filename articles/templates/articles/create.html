@@ -1,0 +1,15 @@
+{% extends "base/index.html" %}
+
+{% block content %}
+  
+    <h3>Create Article</h3>
+    <hr />
+
+    <form method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Create" />
+    </form>
+{% endblock content %}

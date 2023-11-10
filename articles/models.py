@@ -5,6 +5,8 @@ from users.models import CustomUser
 
 class Tag(models.Model):
     name = models.CharField(max_length=50)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
 
     def __str__(self):
         return self.name
